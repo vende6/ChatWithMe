@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aktivnosti u gimnaziji</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Gimnazija</h1>
+      <h2>Dopunske aktivnosti</h2>
+    </header>
+
+    <main>
+      <section id="activities-container">
+        <h3>Dostupne aktivnosti</h3>
+        <div id="activities-list">
+          <!-- Activities will be loaded here -->
+          <p>Ucitavanje aktivnosti...</p>
+        </div>
+      </section>
+
+      <section id="signup-container">
+        <h3>Prijavite se za aktivnost</h3>
+        <form id="signup-form">
+          <div class="form-group">
+            <label for="email">Studentska posta:</label>
+            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+          </div>
+          <div class="form-group">
+            <label for="activity">Izaberite aktivnost:</label>
+            <select id="activity" required>
+              <option value="">-- Izaberite aktivnost --</option>
+              <!-- Activity options will be loaded here -->
+            </select>
+          </div>
+          <button type="submit">Prijava</button>
+        </form>
+        <div id="message" class="hidden"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Gimnazija</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
