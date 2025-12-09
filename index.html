@@ -3,47 +3,215 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aktivnosti u gimnaziji</title>
+    <title>ChatWithMe - Playground</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Gimnazija</h1>
-      <h2>Dopunske aktivnosti</h2>
-    </header>
-
-    <main>
-      <section id="activities-container">
-        <h3>Dostupne aktivnosti</h3>
-        <div id="activities-list">
-          <!-- Activities will be loaded here -->
-          <p>Ucitavanje aktivnosti...</p>
+    <div class="app-container">
+      <!-- User Login/Registration Modal -->
+      <div id="login-modal" class="modal">
+        <div class="modal-content">
+          <h2>Welcome to ChatWithMe</h2>
+          <form id="login-form">
+            <div class="form-group">
+              <label for="username">Choose a username:</label>
+              <input type="text" id="username" required placeholder="Enter your name" />
+            </div>
+            <button type="submit">Join Playground</button>
+          </form>
         </div>
-      </section>
+      </div>
 
-      <section id="signup-container">
-        <h3>Prijavite se za aktivnost</h3>
-        <form id="signup-form">
-          <div class="form-group">
-            <label for="email">Studentska posta:</label>
-            <input type="email" id="email" required placeholder="your-email@mergington.edu" />
+      <!-- Main Chat Interface -->
+      <div id="main-interface" class="hidden">
+        <header class="app-header">
+          <h1>Playground</h1>
+          <div class="user-info">
+            <img id="current-user-avatar" src="" alt="Your avatar" class="user-avatar">
+            <span id="current-user-name"></span>
+            <span id="current-chat-side" class="chat-side-badge"></span>
           </div>
-          <div class="form-group">
-            <label for="activity">Izaberite aktivnost:</label>
-            <select id="activity" required>
-              <option value="">-- Izaberite aktivnost --</option>
-              <!-- Activity options will be loaded here -->
-            </select>
-          </div>
-          <button type="submit">Prijava</button>
-        </form>
-        <div id="message" class="hidden"></div>
-      </section>
-    </main>
+        </header>
 
-    <footer>
-      <p>&copy; 2023 Gimnazija</p>
-    </footer>
+        <div class="chat-container">
+          <!-- Left Chat Window -->
+          <div class="chat-window" id="chatwithme-window">
+            <div class="chat-header">
+              <h2>ChatWithMe</h2>
+            </div>
+            
+            <div class="chat-content">
+              <!-- Activity Sidebar -->
+              <div class="activity-sidebar">
+                <h3>Activities</h3>
+                <div class="activity-list">
+                  <div class="activity-item" data-activity="Chess">
+                    <span class="activity-icon">♟️</span>
+                    <span>Chess</span>
+                  </div>
+                  <div class="activity-item" data-activity="Math">
+                    <span class="activity-icon">🔢</span>
+                    <span>Math</span>
+                  </div>
+                  <div class="activity-item" data-activity="Science">
+                    <span class="activity-icon">🔬</span>
+                    <span>Science</span>
+                  </div>
+                  <div class="activity-item" data-activity="Programming">
+                    <span class="activity-icon">💻</span>
+                    <span>Programming</span>
+                  </div>
+                  <div class="activity-item" data-activity="Skills">
+                    <span class="activity-icon">🎯</span>
+                    <span>Skills</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat Messages Area -->
+              <div class="messages-area">
+                <div id="chatwithme-messages" class="messages-container"></div>
+                
+                <!-- Contact Bubbles -->
+                <div class="contacts-section">
+                  <h4>Your Contacts</h4>
+                  <div id="chatwithme-contacts" class="contacts-container"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-container">
+              <input 
+                type="text" 
+                id="chatwithme-input" 
+                placeholder="Write a message..." 
+                class="message-input"
+              />
+              <button id="chatwithme-send" class="send-button">Send</button>
+            </div>
+          </div>
+
+          <!-- Right Chat Window -->
+          <div class="chat-window" id="towhomilovethemost-window">
+            <div class="chat-header">
+              <h2>ToWhomILoveTheMost</h2>
+            </div>
+            
+            <div class="chat-content">
+              <!-- Activity Sidebar -->
+              <div class="activity-sidebar">
+                <h3>Activities</h3>
+                <div class="activity-list">
+                  <div class="activity-item" data-activity="Chess">
+                    <span class="activity-icon">♟️</span>
+                    <span>Chess</span>
+                  </div>
+                  <div class="activity-item" data-activity="Math">
+                    <span class="activity-icon">🔢</span>
+                    <span>Math</span>
+                  </div>
+                  <div class="activity-item" data-activity="Science">
+                    <span class="activity-icon">🔬</span>
+                    <span>Science</span>
+                  </div>
+                  <div class="activity-item" data-activity="Programming">
+                    <span class="activity-icon">💻</span>
+                    <span>Programming</span>
+                  </div>
+                  <div class="activity-item" data-activity="Skills">
+                    <span class="activity-icon">🎯</span>
+                    <span>Skills</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Chat Messages Area -->
+              <div class="messages-area">
+                <div id="towhomilovethemost-messages" class="messages-container"></div>
+                
+                <!-- Contact Bubbles -->
+                <div class="contacts-section">
+                  <h4>Your Contacts</h4>
+                  <div id="towhomilovethemost-contacts" class="contacts-container"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Message Input -->
+            <div class="message-input-container">
+              <input 
+                type="text" 
+                id="towhomilovethemost-input" 
+                placeholder="Write a message..." 
+                class="message-input"
+              />
+              <button id="towhomilovethemost-send" class="send-button">Send</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Invitation Modal -->
+      <div id="invitation-modal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Activity Invitation</h3>
+          <div id="invitation-content"></div>
+          <div class="modal-buttons">
+            <button id="accept-invitation" class="accept-btn">Yes</button>
+            <button id="decline-invitation" class="decline-btn">No</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Private Chat Modal -->
+      <div id="private-chat-modal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 id="private-chat-title">Chat with User</h3>
+            <button id="close-private-chat" class="close-btn">&times;</button>
+          </div>
+          <div id="private-messages" class="private-messages-container"></div>
+          <div class="private-message-input">
+            <input 
+              type="text" 
+              id="private-message-input" 
+              placeholder="Type your message..." 
+            />
+            <button id="send-private-message">Send</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Activity Selection Modal -->
+      <div id="activity-selection-modal" class="modal hidden">
+        <div class="modal-content">
+          <h3>Invite to Activity</h3>
+          <div id="activity-selection-content">
+            <p>Select an activity to invite <span id="invite-target-user"></span>:</p>
+            <div class="activity-buttons">
+              <button class="activity-invite-btn" data-activity="Chess">♟️ Chess</button>
+              <button class="activity-invite-btn" data-activity="Math">🔢 Math</button>
+              <button class="activity-invite-btn" data-activity="Science">🔬 Science</button>
+              <button class="activity-invite-btn" data-activity="Programming">💻 Programming</button>
+              <button class="activity-invite-btn" data-activity="Skills">🎯 Skills</button>
+            </div>
+            <div class="invitation-message">
+              <label for="invitation-message-input">Optional message:</label>
+              <textarea 
+                id="invitation-message-input" 
+                placeholder="Add a personal message..."
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+          <div class="modal-buttons">
+            <button id="send-activity-invitation">Send Invitation</button>
+            <button id="cancel-activity-invitation">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <script src="app.js"></script>
   </body>
